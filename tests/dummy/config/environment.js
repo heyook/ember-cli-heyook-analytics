@@ -20,7 +20,8 @@ module.exports = function(environment) {
 
     HeyookAnalytics: {
       googleAnalyticsId: 'UA-63582066-3',
-      mixpanelToken: 'mix-panel-token'
+      mixpanelToken: 'mix-panel-token',
+      crazyEggId: '0041/9030'
     }
   };
 
