@@ -1,25 +1,15 @@
 # Ember-cli-heyook-analytics
 
-This README outlines the details of collaborating on this Ember addon.
+Analytics tools for Heyook projects.
 
-## Installation
+### Set environment
+```javascript
+var ENV = {
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+  HeyookAnalytics: {
+    googleAnalyticsId: "GOOGLE_ANALYTICS_ID",
+    mixpanelToken: 'MIXPANEL_TOKEN'
+  }
 
-## Running
-
-* `ember server`
-* Visit your app at http://localhost:4200.
-
-## Running Tests
-
-* `ember test`
-* `ember test --server`
-
-## Building
-
-* `ember build`
-
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+  //...
+};
