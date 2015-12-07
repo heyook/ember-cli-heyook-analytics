@@ -1,11 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Service.extend({
-  track: function(argument) {
-    mixpanel.track(argument);
+  track: function(...args) {
+    mixpanel.track(...args);
   },
 
-  time_event: function(argument) {
-    mixpanel.time_event(argument);
+  time_event: function(...args) {
+    mixpanel.time_event(...args);
   }
 });
