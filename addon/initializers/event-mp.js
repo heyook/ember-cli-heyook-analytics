@@ -1,6 +1,6 @@
 import EventMP from '../services/event-mp';
 
-export function initialize(container, application) {
+export function initialize(application) {
   var eventMP = EventMP.create();
 
   application.register('event-mp:current', eventMP, {
