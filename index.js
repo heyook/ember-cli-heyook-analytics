@@ -45,6 +45,22 @@ var ceContent = hereDoc(function() {/*!
   </script>
 */});
 
+/*
+  Hotjar JS
+*/
+var hjContent = hereDoc(function() {/*!
+  <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:{{HOTJAR_ID}},hjsv:5};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+*/});
+
 module.exports = {
   name: 'ember-cli-heyook-analytics',
 
@@ -55,6 +71,8 @@ module.exports = {
     var projectConfigPath = target.options.project.root + "/config/environment";
     var configPath = (target.options.configPath || projectConfigPath);
     var config = require(configPath)(target.env).HeyookAnalytics;
+
+    console.log('include ember-cli-heyook-analytics', target, config);
 
     target.options.inlineContent = {
       'google-analytics' : {
@@ -74,7 +92,15 @@ module.exports = {
         postProcess: function(content) {
           return content.replace(/\{\{CRAZYEGG_ID\}\}/g, config.crazyEggId);
         }
+      },
+      'hot-jar' : {
+        content: hjContent,
+        postProcess: function(content) {
+          return content.replace(/\{\{HOTJAR_ID\}\}/g, config.hotjarId);
+        }
       }
     };
+
+    console.log(target.options.inlineContent);
   }
 };
