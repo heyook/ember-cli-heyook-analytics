@@ -72,8 +72,6 @@ module.exports = {
     var configPath = (target.options.configPath || projectConfigPath);
     var config = require(configPath)(target.env).HeyookAnalytics;
 
-    console.log('include ember-cli-heyook-analytics', target, config);
-
     target.options.inlineContent = {
       'google-analytics' : {
         content: gaContent,
@@ -100,7 +98,5 @@ module.exports = {
         }
       }
     };
-
-    console.log(target.options.inlineContent);
   }
 };
